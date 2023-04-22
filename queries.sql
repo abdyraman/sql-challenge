@@ -1,11 +1,3 @@
-
-SELECT COUNT(*) FROM departments;
-SELECT COUNT(*) FROM dept_emp;
-SELECT COUNT(*) FROM dept_manager;
-SELECT COUNT(*) FROM employees;
-SELECT COUNT(*) FROM salaries;
-SELECT COUNT(*) FROM titles;
-
 -- List the employee number, last name, first name, sex, and salary of each employee (2 points)
 
 CREATE TABLE details_with_salaries AS
@@ -36,7 +28,7 @@ JOIN employees as e
 
 select * from details_managers;
 
--- Reason why there are more than one manager is that they were changing throut time
+-- Reason why there are more than one manager is that they were changing with time
 CREATE TABLE details_managers_with_dates AS
 SELECT m.dept_no, d.dept_name,m.emp_no, e.last_name, e.first_name,e.hire_date
 FROM dept_manager as m
@@ -67,7 +59,7 @@ WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
 
 -- List each employee in the Sales department, including their employee number, 
 --last name, and first name (2 points)
-SELECT e.emp_no,e.last_name,e.first_name, de.dept_no,d.dept_name
+SELECT e.emp_no,e.last_name,e.first_name
 FROM employees as e
 join dept_emp as de
 	on e.emp_no = de.emp_no
@@ -78,7 +70,7 @@ where dept_name='Sales';
 
 -- List each employee in the Sales and Development departments, 
 --including their employee number, last name, first name, and department name (4 points)
-SELECT e.emp_no,e.last_name,e.first_name, de.dept_no,d.dept_name
+SELECT e.emp_no,e.last_name,e.first_name, d.dept_name
 FROM employees as e
 join dept_emp as de
 	on e.emp_no = de.emp_no
